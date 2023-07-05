@@ -29,10 +29,10 @@ def shopSmart(orderList, fruitShops):
         orderList: List of (fruit, numPound) tuples
         fruitShops: List of FruitShops
     """
-    totalCost = 0.0
+    totalCost = None
     best_shop = None
     for shop in fruitShops:
-        if totalCost == 0.0 or totalCost > shop.getPriceOfOrder(orderList):
+        if totalCost == None or totalCost > shop.getPriceOfOrder(orderList):
             totalCost = shop.getPriceOfOrder(orderList)
             best_shop = shop
     return best_shop
