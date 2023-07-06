@@ -34,14 +34,14 @@ def buyLotsOfFruit(orderList):
 
     Returns cost of order
     """
-    totalCost = 0.0
-    for order in orderList:
-        single_price = fruitPrices.get(order[0])
-        if single_price == None:
-            print(order[0], 'do not exist.')
+    total_cost = 0.0
+    for fruit, pound in orderList:
+        price = fruitPrices.get(fruit)
+        if price == None:
+            print(fruit, 'do not exist.')
             return None
-        totalCost += single_price * order[1]
-    return totalCost
+        total_cost += price * pound
+    return total_cost
 
 
 # Main Method
