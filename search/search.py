@@ -88,15 +88,16 @@ def depthFirstSearch(problem: SearchProblem):
     """
 
     stack = util.Stack()
+    visit = set()
+
     stack.push((problem.getStartState(), []))
-    visit = util.Counter()
 
     while not stack.isEmpty():
         position, actions = stack.pop()
 
-        if visit[position] == 1:
+        if position in visit:
             continue
-        visit[position] = 1
+        visit.add(position)
 
         if problem.isGoalState(position): 
             return actions
@@ -110,15 +111,16 @@ def breadthFirstSearch(problem: SearchProblem):
     """Search the shallowest nodes in the search tree first."""
 
     queue = util.Queue()
+    visit = set()
+
     queue.push((problem.getStartState(), []))
-    visit = util.Counter()
 
     while not queue.isEmpty():
         position, actions = queue.pop()
 
-        if visit[position] == 1:
+        if position in visit:
             continue
-        visit[position] = 1
+        visit.add(position)
 
         if problem.isGoalState(position):
             return actions
@@ -136,15 +138,16 @@ def uniformCostSearch(problem: SearchProblem):
     """Search the node of least total cost first."""
     
     priority_queue = util.PriorityQueue()
+    visit = set()
+
     priority_queue.push((problem.getStartState(), [], 0),0)
-    visit = util.Counter()
 
     while not priority_queue.isEmpty():
         position, actions, cost = priority_queue.pop()
 
-        if visit[position] == 1:
+        if position in visit:
             continue
-        visit[position] = 1
+        visit.add(position)
 
         if problem.isGoalState(position):
             return actions
@@ -165,9 +168,32 @@ def nullHeuristic(state, problem=None):
 def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     
-    "*** YOUR CODE HERE ***"
+    priority_queue = util.PriorityQueue()
+    visit = set()
 
-    util.raiseNotDefined()
+    priority_queue.push((problem.getStartState(), [], 0), 0)
+
+    while not priority_queue.isEmpty():
+        position, actions, cost = priority_queue.pop()
+
+        if position in visit:
+            continue
+        visit.add(position)
+
+        if problem.isGoalState(position):
+            return actions
+
+        for successor, action, step_cost in problem.getSuccessors(position):
+            successor_g = cost + step_cost
+            successor_h = heuristic(successor, problem)
+            successor_f = successor_g + successor_h
+            priority_queue.push((successor, actions + [action], successor_g), successor_f)
+            
+
+    print("Should not reach here")
+    return []
+
+    
 
 
 # Abbreviations
