@@ -93,16 +93,16 @@ def depthFirstSearch(problem: SearchProblem):
     stack.push((problem.getStartState(), []))
 
     while not stack.isEmpty():
-        position, actions = stack.pop()
+        state, actions = stack.pop()
 
-        if position in visit:
+        if state in visit:
             continue
-        visit.add(position)
+        visit.add(state)
 
-        if problem.isGoalState(position): 
+        if problem.isGoalState(state): 
             return actions
 
-        for successor, action, step_cost in problem.getSuccessors(position):
+        for successor, action, step_cost in problem.getSuccessors(state):
             stack.push((successor, actions + [action]))
     print("Should not reach here")
     return []
@@ -116,16 +116,16 @@ def breadthFirstSearch(problem: SearchProblem):
     queue.push((problem.getStartState(), []))
 
     while not queue.isEmpty():
-        position, actions = queue.pop()
+        state, actions = queue.pop()
 
-        if position in visit:
+        if state in visit:
             continue
-        visit.add(position)
+        visit.add(state)
 
-        if problem.isGoalState(position):
+        if problem.isGoalState(state):
             return actions
 
-        for successor, action, step_cost in problem.getSuccessors(position):
+        for successor, action, step_cost in problem.getSuccessors(state):
             queue.push((successor, actions + [action]))
 
     print("Should not reach here")
@@ -143,16 +143,16 @@ def uniformCostSearch(problem: SearchProblem):
     priority_queue.push((problem.getStartState(), [], 0),0)
 
     while not priority_queue.isEmpty():
-        position, actions, cost = priority_queue.pop()
+        state, actions, cost = priority_queue.pop()
 
-        if position in visit:
+        if state in visit:
             continue
-        visit.add(position)
+        visit.add(state)
 
-        if problem.isGoalState(position):
+        if problem.isGoalState(state):
             return actions
 
-        for successor, action, step_cost in problem.getSuccessors(position):
+        for successor, action, step_cost in problem.getSuccessors(state):
             priority_queue.push((successor, actions + [action], cost + step_cost), cost + step_cost)
 
     print("Should not reach here")
@@ -174,16 +174,16 @@ def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
     priority_queue.push((problem.getStartState(), [], 0), 0)
 
     while not priority_queue.isEmpty():
-        position, actions, cost = priority_queue.pop()
+        state, actions, cost = priority_queue.pop()
 
-        if position in visit:
+        if state in visit:
             continue
-        visit.add(position)
+        visit.add(state)
 
-        if problem.isGoalState(position):
+        if problem.isGoalState(state):
             return actions
 
-        for successor, action, step_cost in problem.getSuccessors(position):
+        for successor, action, step_cost in problem.getSuccessors(state):
             successor_g = cost + step_cost
             successor_h = heuristic(successor, problem)
             successor_f = successor_g + successor_h

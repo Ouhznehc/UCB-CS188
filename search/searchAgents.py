@@ -43,6 +43,8 @@ import time
 import search
 import pacman
 
+import copy
+
 class GoWestAgent(Agent):
     "An agent that goes West until it can't."
 
@@ -292,6 +294,11 @@ class CornersProblem(search.SearchProblem):
         # Please add any code here which you would like to use
         # in initializing the problem
         "*** YOUR CODE HERE ***"
+        startPosition = self.startingPosition 
+        startCorners = (True, True, True, True)
+        self.startState = (startPosition, startCorners)
+        
+        
 
     def getStartState(self):
         """
@@ -299,14 +306,18 @@ class CornersProblem(search.SearchProblem):
         space)
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return self.startState
 
     def isGoalState(self, state: Any):
         """
         Returns whether this search state is a goal state of the problem.
         """
         "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        for corner in range(4):
+            if state[1][corner] == True:
+                return False
+        return True
+
 
     def getSuccessors(self, state: Any):
         """
@@ -329,6 +340,22 @@ class CornersProblem(search.SearchProblem):
             #   hitsWall = self.walls[nextx][nexty]
 
             "*** YOUR CODE HERE ***"
+            x, y = state[0]
+            dx, dy = Actions.directionToVector(action)
+            nextx, nexty = int(x + dx), int(y + dy)
+            if not self.walls[nextx][nexty]:
+                nextPosition = (nextx, nexty)
+                nextCorners = ()
+                for corner in range(4):
+                    if nextPosition == self.corners[corner]:
+                        nextCorners += (False, )
+                    else:
+                        nextCorners += (state[1][corner], )
+                
+                nextState = (nextPosition, nextCorners)
+                cost = 1
+                successors.append((nextState, action, cost))
+
 
         self._expanded += 1 # DO NOT CHANGE
         return successors
@@ -364,6 +391,16 @@ def cornersHeuristic(state: Any, problem: CornersProblem):
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
 
     "*** YOUR CODE HERE ***"
+
+    cost = 0
+
+    for corner in self.corners:
+        xy1 = state[0]
+        xy2 = corner
+        cost += abs(xy1[0] - xy2[0]) + abs(xy[1] - xy2[1])
+    
+    return cost
+
     return 0 # Default to trivial solution
 
 class AStarCornersAgent(SearchAgent):
