@@ -393,11 +393,18 @@ def cornersHeuristic(state: Any, problem: CornersProblem):
     "*** YOUR CODE HERE ***"
 
     cost = 0
+    cost_list = []
 
-    for corner in self.corners:
-        xy1 = state[0]
-        xy2 = corner
-        cost += abs(xy1[0] - xy2[0]) + abs(xy[1] - xy2[1])
+    for corner in range(4):
+        if state[1][corner] == True:
+            xy1 = state[0]
+            xy2 = corners[corner]
+            cost_list.append( abs(xy1[0] - xy2[0]) + abs(xy1[1] - xy2[1]) )
+
+    cost_list.sort()
+    
+    if len(cost_list) != 0:
+        cost = cost_list[0] + (len(cost_list) - 1) * 999999 
     
     return cost
 
