@@ -373,6 +373,9 @@ class CornersProblem(search.SearchProblem):
             if self.walls[x][y]: return 999999
         return len(actions)
 
+import itertools
+def manhattanDistance(x: (int, int), y: (int, int)):
+    return abs(x[0] - y[0]) + abs(x[1] - y[1])
 
 def cornersHeuristic(state: Any, problem: CornersProblem):
     """
@@ -392,23 +395,25 @@ def cornersHeuristic(state: Any, problem: CornersProblem):
 
     "*** YOUR CODE HERE ***"
 
-    cost = 0
-    cost_list = []
+    cost = 999999
+    corner_list = []
 
     for corner in range(4):
         if state[1][corner] == True:
-            xy1 = state[0]
-            xy2 = corners[corner]
-            cost_list.append( abs(xy1[0] - xy2[0]) + abs(xy1[1] - xy2[1]) )
+            corner_list.append(corners[corner])
 
-    cost_list.sort()
-    
-    if len(cost_list) != 0:
-        cost = cost_list[0] + (len(cost_list) - 1) * 999999 
-    
+    if len(corner_list) == 0:
+        return 0
+
+    permutations = list(itertools.permutations(corner_list))
+
+    for permutation in permutations:
+        permutation_cost = manhattanDistance(state[0], permutation[0])
+        for corner in range(1, len(permutation)):
+            permutation_cost += manhattanDistance(permutation[corner], permutation[corner - 1])
+        cost = min(cost, permutation_cost)
+
     return cost
-
-    return 0 # Default to trivial solution
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"

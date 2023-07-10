@@ -177,6 +177,9 @@ def aStarSearch(problem: SearchProblem, heuristic=nullHeuristic):
     while not priority_queue.isEmpty():
         state, actions, cost = priority_queue.pop()
 
+        if state in visit and cost > visit[state]:
+            continue
+
         if problem.isGoalState(state):
             return actions
 
