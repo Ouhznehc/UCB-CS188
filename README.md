@@ -1,45 +1,26 @@
-# The Pac-Man Projects
+# Berkeley-CS188
+😎 This is UC Berkeley CS188 **Introduction to Artificial Intelligence** Fall 2022 by GreyPreacher(Alvin Zhang).  
+⚔ **IDE**: PyCharm and Overleaf.
 
-## Overview
+# Resources
+📽 All course resources can be found at [this page](https://inst.eecs.berkeley.edu/~cs188/fa22/).  
+🖼 UC Berkeley has opened up the fall 2018 edition. You can reach resources at [this page](https://inst.eecs.berkeley.edu/~cs188/fa18/index.html)  
 
-The Pac-Man projects were developed for CS 188. They apply an array  of AI techniques to playing Pac-Man. However, these projects don’t focus on building AI for video games. Instead, they teach foundational AI  concepts, such as informed state-space search, probabilistic inference,  and reinforcement learning. These concepts underly real-world  application areas such as natural language processing, computer vision,  and robotics.
+# Note
+🈚 The Note section contains 22 independent notes. 
+- [x] [Note01: Uninformed Search](https://github.com/GreyPreacher/Berkeley-CS188/tree/main/Notes/Note01.pdf)
+- [x] [Note02: Informed Search](https://github.com/GreyPreacher/Berkeley-CS188/tree/main/Notes/Note02.pdf)
 
-We designed these projects with three goals in mind. The projects  allow you to visualize the results of the techniques you implement. They also contain code examples and clear directions, but do not force you  to wade through undue amounts of scaffolding. Finally, Pac-Man provides a challenging problem environment that demands creative solutions;  real-world AI problems are challenging, and Pac-Man is too.
 
-## Projects Overview
+# Homework
+👑 CS188 Fall 2022 did not open homework, therefore, I choose the open-source Fall 2020 version. The Homework section contains 12 independent homework.  
+- [x] HW0(Fa20 electronic): Basic Math
 
-### Project 0: Python, Setup, & Autograder Tutorial
-
-This short tutorial introduces students to conda environments, setup examples, the [Python](http://www.python.org/) programming language, and the autograder system.
-
-### Project 1: Search                      
-
-Students implement depth-first, breadth-first, uniform cost, and A*  search algorithms. These algorithms are used to solve navigation and  traveling salesman problems in the Pacman world.
-
-### Project 2: Multiagent Search                      
-
-Classic Pacman is modeled as both an adversarial and a stochastic search problem. Students implement multiagent minimax and expectimax  algorithms, as well as designing evaluation functions.
-
-### Project 3: Reinforcement Learning                      
-
-Students implement Value Function, Q learning, and Approximate Q  learning to help pacman and crawler agents learn rational policies.
-
-### Project 4: Bayes Nets and HMMs
-
-Pacman uses probabilistic inference on Bayes Nets and the forward  algorithm and particle sampling in a Hidden Markov Model to find ghosts  given noisy readings of distances to them.
-
-### Project 5: Machine Learning                      
-
-Students implement the perceptron algorithm, neural network, and  recurrent nn models, and apply the models to several tasks including  digit classification and language identification.
-
-## Technical Notes                      
-
-The Pac-Man projects are written in pure Python 3.6 and do not depend on any packages external to a standard Python distribution.
-
-## Support                      
-
-This project was supported by the National Science foundation under  CAREER grant 0643742. Any opinions, findings and conclusions or  recommendations expressed in this material are those of the author(s)  and do not necessarily reflect the views of the National Science  Foundation (NSF).
-
-## Credits                      
-
-The projects were developed by John DeNero, Dan Klein, Pieter Abbeel, and many others.
+# Project
+🎭 The Project section contains 6 independent projects. 
+- [x] [Project0: Python, Setup, & Autograder Tutorial](https://github.com/GreyPreacher/Berkeley-CS188/tree/main/project/Project0-Tutorial)
+- [ ] Project1: 
+- [ ] Project2: 
+- [ ] Project3: 
+- [ ] Project4: 
+- [ ] Project5: 
