@@ -1,9 +1,11 @@
 # Berkeley-CS188
 😎 This is UC Berkeley CS188 **Introduction to Artificial Intelligence** Fall 2022 by GreyPreacher(Alvin Zhang)
+
 ⚔ **IDE**: VS Code
 
 # Resources
 📽 All course resources can be found at [this page](https://inst.eecs.berkeley.edu/~cs188/fa22/)
+
 🖼 UC Berkeley has opened up the fall 2018 edition. You can reach resources at [this page](https://inst.eecs.berkeley.edu/~cs188/fa18/index.html)  
 
 # Notes
