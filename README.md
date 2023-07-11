@@ -1,4 +1,4 @@
-# Berkeley-CS188
+# UC Berkeley-CS188
 😎 This is UC Berkeley CS188 **Introduction to Artificial Intelligence** Fall 2022 by GreyPreacher(Alvin Zhang)
 
 ⚔ **IDE**: VS Code
