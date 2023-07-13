@@ -385,7 +385,7 @@ MY CODE HERE
 
 from itertools import permutations
 
-def manhattan_distance(x: (int, int), y: (int, int)):
+def manhattan_distance(x: Tuple(int, int), y: Tuple(int, int)):
     return abs(x[0] - y[0]) + abs(x[1] - y[1])
 
 def cornersHeuristic(state: Any, problem: CornersProblem):
