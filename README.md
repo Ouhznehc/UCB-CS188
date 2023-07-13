@@ -70,7 +70,7 @@
 🎭 The [Projects section](https://inst.eecs.berkeley.edu/~cs188/fa22/projects/) contains 6 independent projects 
 - [x] [Project0: Python, Setup, & Autograder Tutorial](https://github.com/Ouhznehc/CS188-Pacman/tree/main/Projects/tutorial)
 - [x] [Project1: Search](https://github.com/Ouhznehc/CS188-Pacman/tree/main/Projects/search) 
-- [ ] Project2:
+- [ ] [Project2: Multi-Agent Search](https://github.com/Ouhznehc/UCBerkeley-CS188/tree/main/Projects/multiagent)
 - [ ] Project3: 
 - [ ] Project4: 
 - [ ] Project5: 
